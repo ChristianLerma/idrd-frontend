@@ -22,7 +22,7 @@ Node.js - v^18.19.1 or newer
 
 Para iniciar el proyecto
 ```bash
-npm run start:dev --debug --watch
+ng serve
 ```
 
 # IdrdFrontend
