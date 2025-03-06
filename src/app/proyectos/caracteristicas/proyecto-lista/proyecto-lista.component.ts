@@ -1,20 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { ProyectosService } from '../../datos-acceso/proyectos.service';
+import { ProyectosStateService } from '../../datos-acceso/proyectos-state.service';
+import { ProyectoCardComponent } from '../../ui/proyecto-card/proyecto-card.component';
 
 @Component({
   selector: 'app-proyecto-lista',
   standalone: true,
-  imports: [],
+  imports: [ProyectoCardComponent],
   templateUrl: './proyecto-lista.component.html',
   styles: ``,
-  providers: [ProyectosService]
+  providers: [ProyectosStateService],
 })
 export default class ProyectoListaComponent {
-  private proyectosService = inject(ProyectosService);
-
-  constructor() {
-    this.proyectosService.getProyectos().subscribe((proyecto) => {
-      console.log(proyecto)
-    });
-  }
+  proyectosState = inject(ProyectosStateService);
 }

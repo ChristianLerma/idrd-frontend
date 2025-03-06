@@ -6,7 +6,11 @@ export const routes: Routes = [
     loadChildren: () => import('./proyectos/caracteristicas/proyecto-capa/proyecto.route')
   },
   {
-    path: '**', 
+    path: 'materiales',
+    loadChildren: () => import('./materiales/caracteristicas/materiales-capa/material.route')
+  },
+  {
+    path: '**',
     redirectTo: 'proyectos',
   }
 ];

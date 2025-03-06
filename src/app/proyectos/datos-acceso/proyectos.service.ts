@@ -5,9 +5,16 @@ import { BaseHttpService } from "../../shared/datos-acceso/base-http.service";
 import { Observable } from "rxjs";
 import { Proyecto } from "../../shared/interfaces/proyecto.interface";
 
-@Injectable()
+const LIMIT = 10;
+
+@Injectable({ providedIn: 'root' })
 export class ProyectosService extends BaseHttpService{
-  getProyectos() : Observable<Proyecto> {
-    return this.http.get<any>(`${this.apiUrl}/proyectos`);
+  getProyectos(page: number, limit: number) : Observable<Proyecto> {
+    return this.http.get<any>(`${this.apiUrl}/proyectos`, {
+      params: {
+        page: page,
+        limit: LIMIT,
+      },
+    });
   }
 }

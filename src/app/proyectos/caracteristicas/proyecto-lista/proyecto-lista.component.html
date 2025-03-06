@@ -1,1 +1,13 @@
-<p>proyecto-lista works!</p>
+<h1 class="text-2xl p-5">Lista de proyectos (<span class="text-xl text-cyan-700">Registros encontrados: {{ proyectosState.state().proyectos.length }}</span>)</h1>
+
+<div class="mx-auto max-w-screen-xl pt-4">
+  @if( proyectosState.state().status === 'loading') {
+    <p>Loading...</p>
+  } @else {
+    <div class="grid items-center grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3">
+      @for (proyecto of proyectosState.state().proyectos; track proyecto) {
+        <app-proyecto-card class="block" [proyecto]="proyecto" />
+      }
+    </div>
+  }
+</div>
