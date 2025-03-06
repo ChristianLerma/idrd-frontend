@@ -1,3 +1,25 @@
+<h1> Frontend en Angular 19 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" width="30px"/> (Flowbite, tailwindcss) </h1>
+
+### Technologies
+![Angular](https://img.shields.io/badge/-Angular-333333?style=flat&logo=angular)
+![TypeScript](https://img.shields.io/badge/-TypeScript-333333?style=flat&logo=typescript)
+![Tailwindcss](https://img.shields.io/badge/-Tailwind-333333?style=flat&logo=tailwindcss)
+![Tailwindcss](https://img.shields.io/badge/-Tailwind-333333?style=flat&logo=tailwindcss)
+![Git](https://img.shields.io/badge/-Git-333333?style=flat&logo=git)
+![Jasmine](https://img.shields.io/badge/-Jasmine-333333?style=flat&logo=jasmine)
+![Flowbite](https://img.shields.io/badge/-Flowbite-333333?style=flat&logo=flowbite)
+
+# About
+
+Listado de Proyectos
+![imagen](https://github.com/user-attachments/assets/e2fe3e7a-c02a-415f-adb1-1c20d5e9c24f)
+
+Listado de Materiales
+![imagen](https://github.com/user-attachments/assets/2cae2a69-7f0b-4894-8c13-2456b0061193)
+
+# Requisitos
+Node.js - v^18.19.1 or newer
+
 # IdrdFrontend
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
