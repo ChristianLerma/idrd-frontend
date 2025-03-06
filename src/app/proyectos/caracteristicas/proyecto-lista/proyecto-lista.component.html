@@ -6,7 +6,7 @@
   } @else {
     <div class="grid items-center grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3">
       @for (proyecto of proyectosState.state().proyectos; track proyecto) {
-        <app-proyecto-card class="block" [proyecto]="proyecto" />
+        <app-proyecto-card class="block" [proyecto]="proyecto" (removeEventEmitter)="onRemove($event)"/>
       }
     </div>
   }

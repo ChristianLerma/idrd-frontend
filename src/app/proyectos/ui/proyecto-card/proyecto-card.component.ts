@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, EventEmitter, input, Output } from '@angular/core';
 import { Proyecto } from '../../../shared/interfaces/proyecto.interface';
 import { DatePipe } from '@angular/common';
 
@@ -17,5 +17,10 @@ export class ProyectoCardComponent {
   formatDate(value: string) {
     const fecha = new Date(value);
     return this.datepipe.transform(fecha, 'yyyy-MM-dd');
+  }
+
+  @Output() removeEventEmitter: EventEmitter<number> = new EventEmitter<number>();
+  onRemove(id: number) {
+    this.removeEventEmitter.emit(id);
   }
 }
