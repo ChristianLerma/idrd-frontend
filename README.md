@@ -20,6 +20,11 @@ Listado de Materiales
 # Requisitos
 Node.js - v^18.19.1 or newer
 
+Para iniciar el proyecto
+```bash
+npm run start:dev --debug --watch
+```
+
 # IdrdFrontend
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
