@@ -1,8 +1,8 @@
 import { inject, Injectable } from "@angular/core";
+import { ProyectosService } from "./proyectos.service";
+import { map, Observable } from "rxjs";
 import { Proyecto } from "../../shared/interfaces/proyecto.interface";
 import { signalSlice } from "ngxtension/signal-slice";
-import { ProyectosService } from "./proyectos.service";
-import { map } from "rxjs";
 
 interface State {
   proyectos: Proyecto[];
@@ -26,8 +26,29 @@ export class ProyectosStateService {
     initialState: this.initialState,
     sources: [
       this.proyectosService
-        .getProyectos(1, 10)
-        .pipe(map((proyectos) => ({ proyectos: proyectos as unknown as Proyecto[], status: 'success' as const }))),
+        .getProyectos(1).pipe(
+          map((proyectos) => ({
+            proyectos: proyectos as unknown as Proyecto[],
+            status: 'success' as const
+          }))
+        ),
     ],
+    actionSources: {
+      remove: (state, action$: Observable<number>) =>
+        action$.pipe(
+          map((id) => ({
+            proyectos: state().proyectos.filter((proyecto) => proyecto.id !== id)
+          }),
+        ),
+      )
+    }
   });
+
+  refreshState(id: number) {
+    this.state.remove(id);
+
+    this.proyectosService.deleteProyecto(id).subscribe(() => {
+      alert('Proyecto eliminado con éxito');
+    })
+  }
 }

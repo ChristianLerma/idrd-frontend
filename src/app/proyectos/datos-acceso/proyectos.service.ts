@@ -7,8 +7,8 @@ const LIMIT = 10;
 
 @Injectable({ providedIn: 'root' })
 export class ProyectosService extends BaseHttpService{
-  getProyectos(page: number, limit: number) : Observable<Proyecto> {
-    return this.http.get<any>(`${this.apiUrl}/proyectos`, {
+  getProyectos(page: number) : Observable<Proyecto> {
+    return this.http.get<Proyecto>(`${this.apiUrl}/proyectos`, {
       params: {
         page: page,
         limit: LIMIT,
@@ -16,7 +16,7 @@ export class ProyectosService extends BaseHttpService{
     });
   }
 
-  getProyectoMateriales(id: number) : Observable<unknown> {
-    return this.http.get<unknown>(`${this.apiUrl}/proyecto-materiales/${id}`);
+  deleteProyecto(id: number) : Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/proyectos/${id}`);
   }
 }

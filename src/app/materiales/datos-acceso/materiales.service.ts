@@ -7,13 +7,17 @@ const LIMIT = 10;
 
 @Injectable({ providedIn: 'root' })
 export class MaterialesService extends BaseHttpService{
-  getMateriales(page: number, limit: number) : Observable<Material> {
-    return this.http.get<any>(`${this.apiUrl}/materiales`, {
+  getMateriales(page: number) : Observable<Material> {
+    return this.http.get<Material>(`${this.apiUrl}/materiales`, {
       params: {
         page: page,
         limit: LIMIT,
       },
     });
+  }
+
+  deleteMaterial(id: number) : Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/materiales/${id}`);
   }
 
   submitApplication(codigo: string , descripcion: string, unidad: string, precio: number) {

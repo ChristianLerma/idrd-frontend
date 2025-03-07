@@ -1,7 +1,7 @@
 import { inject, Injectable } from "@angular/core";
 import { Material } from "../../shared/interfaces/material.interface";
 import { signalSlice } from "ngxtension/signal-slice";
-import { map } from "rxjs";
+import { map, Observable } from "rxjs";
 import { MaterialesService } from "./materiales.service";
 
 interface State {
@@ -26,8 +26,24 @@ export class MaterialesStateService {
     initialState: this.initialState,
     sources: [
       this.materialesService
-        .getMateriales(1, 10)
+        .getMateriales(1)
         .pipe(map((materiales) => ({ materiales: materiales as unknown as Material[], status: 'success' as const }))),
     ],
+    actionSources: {
+      remove: (state, action$: Observable<number>) =>
+        action$.pipe(
+          map((id) => ({
+            materiales: state().materiales.filter((material) => material.id !== id),
+          })),
+        ),
+    },
   });
+
+  refreshState(id: number) {
+    this.state.remove(id);
+
+    this.materialesService.deleteMaterial(id).subscribe(() => {
+      alert('Material eliminado con éxito');
+    });
+  }
 }

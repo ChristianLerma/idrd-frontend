@@ -4,7 +4,7 @@ export interface Municipio {
   id: number;
   nombre: string;
   departamento: Departamento;
-  createdAt: string;
-  updatedAt: string;
-  deletedAt: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date | null;
 }

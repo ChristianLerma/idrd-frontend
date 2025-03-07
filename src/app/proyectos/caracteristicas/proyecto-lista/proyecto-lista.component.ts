@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output, output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ProyectosStateService } from '../../datos-acceso/proyectos-state.service';
 import { ProyectoCardComponent } from '../../ui/proyecto-card/proyecto-card.component';
 
@@ -15,6 +15,9 @@ export default class ProyectoListaComponent {
 
   @Output() removeEventEmitter: EventEmitter<number> = new EventEmitter<number>();
   onRemove(id: number) {
-    console.log('ProyectoListaComponent.onRemove', id);
+    const result = confirm('¿Estás seguro de que quieres eliminar este proyecto?');
+    if (result) {
+      this.proyectosState.refreshState(id);
+    }
   }
 }

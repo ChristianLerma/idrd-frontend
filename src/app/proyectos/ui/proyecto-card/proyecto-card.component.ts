@@ -4,6 +4,7 @@ import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-proyecto-card',
+  standalone: true,
   imports: [],
   templateUrl: './proyecto-card.component.html',
   styles: ``,

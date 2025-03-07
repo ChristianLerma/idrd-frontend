@@ -7,7 +7,7 @@
       {{ proyecto().departamento.nombre }} - ({{ proyecto().municipio.nombre }})
     </span>
   </div>
-  <p class="mb-3 font-normal text-gray-800 line-clamp-3"> {{ proyecto().nombre }} </p>
+
   <div class="flex flex-col items-end">
     <div class="flex">
       <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-blue-50 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 text-center inline-flex items-center gap-2">
@@ -22,8 +22,8 @@
       </button>
     </div>
     <span class="text-xs text-gray-600 divide-x-2 divide-zinc-500 text-nowrap">
-      <span class="pr-2">Creado: {{ formatDate(proyecto().createdAt)}}</span>
-      <span class="pl-2">Actualizado: {{ formatDate(proyecto().updatedAt)}}</span>
+      <span class="pr-2">Creado: {{ formatDate(proyecto().createdAt.toString())}}</span>
+      <span class="pl-2">Actualizado: {{ formatDate(proyecto().updatedAt.toString())}}</span>
     </span>
   </div>
 </div>

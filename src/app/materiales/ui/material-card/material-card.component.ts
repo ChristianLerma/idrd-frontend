@@ -1,4 +1,4 @@
-import { Component, inject, Input, input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, input, Output } from '@angular/core';
 import { Material } from '../../../shared/interfaces/material.interface';
 import { CommonModule } from '@angular/common';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
@@ -53,5 +53,10 @@ export class MaterialCardComponent {
 
   submitApplication() {
     this.materialService.submitApplication(this.materialForm.value.codigo || '', this.materialForm.value.descripcion || '', this.materialForm.value.unidad || '', this.materialForm.value.precio as unknown as number);
+  }
+
+  @Output() removeEventEmitter: EventEmitter<number> = new EventEmitter<number>();
+  onRemove(id: number) {
+    this.removeEventEmitter.emit(id);
   }
 }

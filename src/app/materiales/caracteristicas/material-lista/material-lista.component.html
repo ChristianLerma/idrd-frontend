@@ -6,7 +6,7 @@
   } @else {
     <div class="grid items-center grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
       @for (material of materialState.state().materiales; track material) {
-        <app-material-card [material]="material"></app-material-card>
+        <app-material-card [material]="material" (removeEventEmitter)="onRemove($event)"></app-material-card>
       }
     </div>
   }

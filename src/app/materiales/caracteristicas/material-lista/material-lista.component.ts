@@ -1,7 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { MaterialCardComponent } from '../../ui/material-card/material-card.component';
 import { MaterialesStateService } from '../../datos-acceso/materiales-state.service';
-import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-material-lista',
@@ -12,10 +11,14 @@ import { initFlowbite } from 'flowbite';
   providers: [MaterialesStateService],
 
 })
-export default class MaterialListaComponent implements OnInit {
+export default class MaterialListaComponent {
   materialState = inject(MaterialesStateService);
 
-  ngOnInit() {
-    initFlowbite();
+  @Output() removeEventEmitter: EventEmitter<number> = new EventEmitter<number>();
+  onRemove(id: number) {
+    const result = confirm('¿Estás seguro de que quieres eliminar este material?');
+    if (result) {
+      this.materialState.refreshState(id);
+    }
   }
 }

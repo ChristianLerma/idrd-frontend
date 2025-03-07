@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/ui/header/header.component';
 import { initFlowbite } from 'flowbite';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,13 @@ import { initFlowbite } from 'flowbite';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'idrd-frontend';
+export class AppComponent implements OnInit {
+  constructor(private viewportScroller: ViewportScroller) {}
+
+  title = 'IDRD Frontend';
 
   ngOnInit(): void {
     initFlowbite();
+    this.viewportScroller.scrollToPosition([0, 0]);
   }
 }
